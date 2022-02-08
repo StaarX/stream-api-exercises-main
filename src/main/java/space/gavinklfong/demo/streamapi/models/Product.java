@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -35,7 +36,8 @@ public class Product {
 	
 	@With
 	private Double price;
-	
+
+	@JsonIgnore
 	@ManyToMany(mappedBy = "products")
 	@ToString.Exclude
 	@EqualsAndHashCode.Exclude
